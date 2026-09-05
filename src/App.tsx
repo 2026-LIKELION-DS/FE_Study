@@ -17,15 +17,27 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const handleCompleteTodo = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, completed: true }
+          : todo
+      )
+    );
+  };
+
+  const handleDeleteTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <main className="todo-container">
-      <h1 className="todo-container__header">
-        ⛄︎ YEBIN'S TO-DO ⛄︎
-      </h1>
+      <h1 className="todo-container__header">🌷 MY TO-DO</h1>
 
       <TodoInput onAdd={handleAddTodo} />
 
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onComplete={handleCompleteTodo} onDelete={handleDeleteTodo}/>
     </main>
   );
 }
