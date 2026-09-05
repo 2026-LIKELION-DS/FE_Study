@@ -1,0 +1,95 @@
+body {
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #fff5f7, #ffe4ec);
+}
+
+.todo-container {
+    width: 420px;
+    padding: 24px;
+    background: white;
+    border: 3px solid #f3a6b8;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.todo-container__header {
+    margin-bottom: 20px;
+    color: #e8879e;
+}
+
+.todo-container__form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.todo-container__input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #f3a6b8;
+    border-radius: 8px;
+}
+
+.todo-container__button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #e8879e;
+    color: white;
+    cursor: pointer;
+}
+
+.render-container {
+    display: flex;
+    gap: 20px;
+}
+
+.render-container__section {
+    width: 50%;
+}
+
+.render-container__title {
+    color: #e8879e;
+    font-size: 18px;
+}
+
+.render-container__list {
+    padding: 0;
+    list-style: none;
+}
+
+.render-container__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #fff7f9;
+    border-radius: 10px;
+}
+
+.render-container__item-text {
+    font-size: 14px;
+}
+
+.render-container__item-button {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.render-container__item-button.complete {
+    background: #e8879e;
+}
+
+.render-container__item-button.delete {
+    background: #777;
+}
