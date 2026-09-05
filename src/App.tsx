@@ -33,7 +33,7 @@ function App() {
 
   return (
     <main className="todo-container">
-      <h1 className="todo-container__header">🌷 MY TO-DO</h1>
+      <h1 className="todo-container__header">⛄︎ YEBIN'S TODO ⛄︎</h1>
 
       <TodoInput onAdd={handleAddTodo} />
 
