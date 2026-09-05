@@ -1,14 +1,11 @@
+import TodoInput from "./components/TodoInput";
 import "./style.css";
 
 function App() {
   return (
     <main className="todo-container">
       <h1 className="todo-container__header">⛄︎ YEBIN'S TO-DO ⛄︎</h1>
-
-      <form className="todo-container__form">
-        <input className="todo-container__input" type="text" placeholder="할 일을 입력하세요"/>
-        <button className="todo-container__button" type="button">추가</button>
-      </form>
+      <TodoInput />
 
       <div className="render-container">
         <section className="render-container__section">
