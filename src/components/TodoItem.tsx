@@ -1,6 +1,6 @@
 interface TodoItemProps {
-  text: string;
-  completed: boolean;
+    text: string;
+    completed: boolean;
 }
 
 function TodoItem({ text, completed }: TodoItemProps) {
