@@ -1,13 +1,27 @@
 import TodoItem from "./TodoItem";
+import type { Todo } from "../types/Todo";
 
-function TodoList() {
+interface TodoListProps {
+    todos: Todo[];
+}
+
+function TodoList({ todos }: TodoListProps) {
+    const activeTodos = todos.filter((todo) => !todo.completed);
+    const completedTodos = todos.filter((todo) => todo.completed);
+
     return (
         <div className="render-container">
         <section className="render-container__section">
             <h2 className="render-container__title">할 일</h2>
 
             <ul className="render-container__list">
-            <TodoItem text="예시 할 일" completed={false} />
+            {activeTodos.map((todo) => (
+                <TodoItem
+                key={todo.id}
+                text={todo.text}
+                completed={todo.completed}
+                />
+            ))}
             </ul>
         </section>
 
@@ -15,7 +29,13 @@ function TodoList() {
             <h2 className="render-container__title">완료</h2>
 
             <ul className="render-container__list">
-            <TodoItem text="예시 완료 항목" completed={true} />
+            {completedTodos.map((todo) => (
+                <TodoItem
+                key={todo.id}
+                text={todo.text}
+                completed={todo.completed}
+                />
+            ))}
             </ul>
         </section>
         </div>
