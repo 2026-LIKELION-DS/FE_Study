@@ -18,14 +18,17 @@ const TodoInput = ({ onAdd }: TodoInputProps) => {
   };
 
   return (
-    <form className="todo-input" onSubmit={handleSubmit}>
+    <form className="todo-container__form" onSubmit={handleSubmit}>
       <input
+        className="todo-container__input"
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="할 일을 입력하세요"
       />
-      <button type="submit">추가</button>
+      <button className="todo-container__button" type="submit">
+        추가
+      </button>
     </form>
   );
 };

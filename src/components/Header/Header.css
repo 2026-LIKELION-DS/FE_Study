@@ -1,4 +1,19 @@
-.header {
-  text-align: center;
-  padding: 1rem 0;
+.todo-container__header-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-container__mascot {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.todo-container__header {
+  font-size: 26px;
+  margin: 0 0 20px;
+  color: #444444;
+  font-weight: 800;
 }

@@ -9,14 +9,20 @@ interface TodoItemProps {
 
 const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
   return (
-    <li className="todo-item">
-      <span
-        className={todo.completed ? "todo-item__text completed" : "todo-item__text"}
+    <li className="render-container__item">
+      <span className="render-container__item-text">{todo.text}</span>
+      <button
+        className="render-container__item-button complete"
         onClick={() => onToggle(todo.id)}
       >
-        {todo.text}
-      </span>
-      <button onClick={() => onDelete(todo.id)}>삭제</button>
+        {todo.completed ? "취소" : "완료"}
+      </button>
+      <button
+        className="render-container__item-button delete"
+        onClick={() => onDelete(todo.id)}
+      >
+        삭제
+      </button>
     </li>
   );
 };

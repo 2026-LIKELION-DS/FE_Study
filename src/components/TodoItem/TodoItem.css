@@ -1,15 +1,48 @@
-.todo-item {
+.render-container__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f4f4f4;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
 
-.todo-item__text {
+.render-container__item-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #333333;
+}
+
+.render-container__item-button {
+  color: white;
+  border: none;
+  padding: 6px 10px;
   cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.todo-item__text.completed {
-  text-decoration: line-through;
-  color: #999;
+.render-container__item-button.complete {
+  background-color: #8a8a8a;
+}
+
+.render-container__item-button.complete:hover {
+  background-color: #6b6b6b;
+  transform: scale(1.05);
+}
+
+.render-container__item-button.delete {
+  background-color: #4a4a4a;
+}
+
+.render-container__item-button.delete:hover {
+  background-color: #2e2e2e;
+  transform: scale(1.05);
 }

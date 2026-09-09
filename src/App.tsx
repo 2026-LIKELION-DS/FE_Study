@@ -24,8 +24,10 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header />
-      <TodoInput onAdd={addTodo} />
+      <div className="todo-container">
+        <Header />
+        <TodoInput onAdd={addTodo} />
+      </div>
       <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
   );
