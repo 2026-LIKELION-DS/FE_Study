@@ -1,0 +1,21 @@
+import type { Todo } from "../../types/todo";
+import TodoItem from "../TodoItem/TodoItem";
+import "./TodoList.css";
+
+interface TodoListProps {
+  todos: Todo[];
+  onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
+}
+
+const TodoList = ({ todos, onToggle, onDelete }: TodoListProps) => {
+  return (
+    <ul className="todo-list">
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} onToggle={onToggle} onDelete={onDelete} />
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;
