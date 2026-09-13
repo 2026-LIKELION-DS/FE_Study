@@ -24,4 +24,4 @@ export const TodoList = ({ title, todos, onToggle, onDelete }: TodoListProps) =>
       </ul>
     </div>
   );
-};
+}; 

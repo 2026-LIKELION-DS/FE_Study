@@ -35,4 +35,4 @@ export const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
       )}
     </li>
   );
-};
+}; 

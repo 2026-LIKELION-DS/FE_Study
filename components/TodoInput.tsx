@@ -28,4 +28,4 @@ export const TodoInput = ({ onAdd }: TodoInputProps) => {
       </button>
     </form>
   );
-};
+}; 
