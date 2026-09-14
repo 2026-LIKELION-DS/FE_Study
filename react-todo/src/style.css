@@ -1,0 +1,196 @@
+/* ===== 기본 스타일 ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  color: #222;
+  background: linear-gradient(135deg, #fff6eb, #fae6d6);
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Todo 컨테이너 ===== */
+.todo-container {
+  /* 내용 400px + 좌우 여백 48px + 테두리 6px */
+  width: 454px;
+  max-width: 100%;
+  padding: 20px 24px;
+  background: #fff;
+  border: 3px solid #e98232;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+/* ===== 제목 ===== */
+.todo-container__header {
+  margin: 17px 0 20px;
+  color: #e98232;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* ===== 입력 폼 ===== */
+.todo-container__form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-container__input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 2px solid #efa363;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.todo-container__input::placeholder {
+  color: #888;
+}
+
+.todo-container__input:focus {
+  border-color: #222;
+  outline: none;
+}
+
+.todo-container__button {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e98232;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.todo-container__button:hover {
+  background-color: #d87327;
+  transform: scale(1.05);
+}
+
+/* ===== 할 일 / 완료 영역 ===== */
+.render-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.render-container__section {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.render-container__title {
+  margin: 16px 0 12px;
+  color: #e98232;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* ===== 리스트 ===== */
+.render-container__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.render-container__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px;
+  background: #fcf7f3;
+}
+
+.render-container__item-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===== 완료 / 삭제 버튼 ===== */
+.render-container__item-button {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.render-container__item-button.complete {
+  background-color: #e98232;
+}
+
+.render-container__item-button.complete:hover {
+  background-color: #d87327;
+  transform: scale(1.05);
+}
+
+.render-container__item-button.delete {
+  background-color: #5b5b5b;
+}
+
+.render-container__item-button.delete:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+button:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 3px;
+}
+
+/* ===== 작은 화면 ===== */
+@media (max-width: 480px) {
+  .todo-container {
+    padding: 20px;
+  }
+
+  .todo-container__header {
+    font-size: 22px;
+  }
+
+  .render-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .render-container__section {
+    width: 100%;
+  }
+}
