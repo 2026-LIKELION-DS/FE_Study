@@ -5,12 +5,13 @@ import TodoList from "./components/TodoList";
 import type { Todo } from "./types";
 
 function App() {
-
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const activeTodos = todos.filter((todo) => !todo.isDone);
 
- //할 일 추가
+  const completedTodos = todos.filter((todo) => todo.isDone);
+
+  //할 일 추가
   const handleAdd = (text: string) => {
     const newTodo: Todo = {
       id: Date.now(),
@@ -21,9 +22,7 @@ function App() {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   };
 
-
   const handleComplete = (id: number) => {
-  
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
         todo.id === id ? { ...todo, isDone: true } : todo,
@@ -31,9 +30,14 @@ function App() {
     );
   };
 
+  //할 일 삭제하기
+  const handleDelete = (id: number) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="todo-container">
-      <h1 className="todo-container__header">To-Do List</h1>
+      <h1 className="todo-container__header">🦁 LIKELION TO-DO</h1>
 
       <TodoInput onAdd={handleAdd} />
 
@@ -46,10 +50,13 @@ function App() {
           onButtonClick={handleComplete}
         />
 
-        <section className="render-container__section">
-          <h2 className="render-container__title">완료</h2>
-        
-        </section>
+        <TodoList
+          title="완료"
+          todos={completedTodos}
+          buttonLabel="삭제"
+          buttonVariant="delete"
+          onButtonClick={handleDelete}
+        />
       </div>
     </div>
   );
