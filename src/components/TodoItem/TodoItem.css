@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 6px;
 
   padding: 10px;
   border-bottom: 1px solid #e0e0e0;
@@ -12,14 +13,17 @@
 
 .render-container__item-text {
   flex: 1;
+  min-width: 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 14px;
   color: #333333;
+  text-align: left;
 }
 
 .render-container__item-button {
+  flex-shrink: 0;
   color: white;
   border: none;
   padding: 6px 10px;
@@ -30,19 +34,19 @@
 }
 
 .render-container__item-button.complete {
-  background-color: #8a8a8a;
+  background-color: #7cb342;
 }
 
 .render-container__item-button.complete:hover {
-  background-color: #6b6b6b;
+  background-color: #689f38;
   transform: scale(1.05);
 }
 
 .render-container__item-button.delete {
-  background-color: #4a4a4a;
+  background-color: #e53935;
 }
 
 .render-container__item-button.delete:hover {
-  background-color: #2e2e2e;
+  background-color: #c62828;
   transform: scale(1.05);
 }

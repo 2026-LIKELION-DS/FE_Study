@@ -4,11 +4,19 @@
   align-items: center;
 }
 
-.todo-container__mascot {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
+.todo-container__mascot-frame {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
   margin-bottom: 8px;
+}
+
+.todo-container__mascot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
 }
 
 .todo-container__header {
