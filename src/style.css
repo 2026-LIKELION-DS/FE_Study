@@ -1,0 +1,151 @@
+/* ===== 기본 스타일 ===== */
+body {
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #fff5f7, #ffe4ec);
+}
+
+/* ===== Todo 컨테이너 ===== */
+.todo-container {
+    width: 420px;
+    padding: 28px;
+    background: white;
+    border: 3px solid #f3a6b8;
+    border-radius: 18px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ===== 제목 ===== */
+.todo-container__header {
+  margin: 0 0 24px;
+  color: #e8879e;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* ===== 입력 폼 ===== */
+.todo-container__form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.todo-container__input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 2px solid #f3a6b8;
+    border-radius: 9px;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.todo-container__input:focus {
+    border-color: #e8879e;
+}
+
+.todo-container__button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 9px;
+    background-color: #e8879e;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.todo-container__button:hover {
+    background-color: #d97791;
+    transform: scale(1.05);
+}
+
+/* ===== 할 일 / 완료 영역 ===== */
+.render-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.render-container__section {
+    width: 50%;
+    min-width: 0;
+}
+
+.render-container__title {
+    margin: 0 0 14px;
+    color: #e8879e;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ===== 리스트 ===== */
+.render-container__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ===== 리스트 아이템 ===== */
+.render-container__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #fff7f9;
+    border-radius: 10px;
+}
+
+.render-container__item-text {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* ===== 완료 / 삭제 버튼 ===== */
+.render-container__item-button {
+    flex-shrink: 0;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.render-container__item-button.complete {
+    background-color: #e8879e;
+}
+
+.render-container__item-button.complete:hover {
+    background-color: #d97791;
+    transform: scale(1.05);
+}
+
+.render-container__item-button.delete {
+    background-color: #777;
+}
+
+.render-container__item-button.delete:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
