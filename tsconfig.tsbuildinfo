@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/api/todos.ts","./src/components/header/header.tsx","./src/components/todoinput/todoinput.tsx","./src/components/todoitem/todoitem.tsx","./src/components/todolist/todolist.tsx","./src/types/todo.ts"],"version":"5.9.3"}

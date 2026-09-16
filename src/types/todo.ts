@@ -1,5 +1,6 @@
-export interface Todo {
-  id: string;
-  text: string;
+export interface ApiTodo {
+  userId: number;
+  id: number;
+  title: string;
   completed: boolean;
 }
