@@ -1,12 +1,14 @@
 .render-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   width: 400px;
+  margin: 0 auto;
 }
 
 .render-container__section {
   width: 100%;
+  min-width: 0;
   text-align: center;
 }
 
