@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { TodoInput } from './components/TodoInput';
-import { TodoList } from './components/TodoList';
-import './style.css';
+import React, { useState } from "react";
+import { TodoInput } from "./components/TodoInput";
+import { TodoList } from "./components/TodoList";
+import "./style.css";
 
-export interface Todo{
+export interface Todo {
   id: number;
   text: string;
   isDone: boolean;
@@ -22,8 +22,8 @@ export const App: React.FC = () => {
   const handleToggle = (id: number) => {
     setTodos((prev) =>
       prev.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-      )
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo,
+      ),
     );
   };
   const handleDelete = (id: number) => {
@@ -34,21 +34,21 @@ export const App: React.FC = () => {
   return (
     <div className="todo-container">
       <h1 className="todo-container__header">🦁LIKELION TO-DO</h1>
-      <TodoInput onAdd={handleAddTodo}/>
+      <TodoInput onAdd={handleAddTodo} />
       <div className="render-container">
         <TodoList
-            title="할 일"
-            todos={workingTodos}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
-          <TodoList
-            title="완료"
-            todos={doneTodos}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
-        </div>
+          title="할 일"
+          todos={workingTodos}
+          onToggle={handleToggle}
+          onDelete={handleDelete}
+        />
+        <TodoList
+          title="완료"
+          todos={doneTodos}
+          onToggle={handleToggle}
+          onDelete={handleDelete}
+        />
+      </div>
     </div>
   );
 };
