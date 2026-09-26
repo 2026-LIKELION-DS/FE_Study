@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { TodoInput } from "./components/TodoInput";
 import { TodoList } from "./components/TodoList";
 import "./style.css";
@@ -8,29 +9,35 @@ export interface Todo {
   text: string;
   isDone: boolean;
 }
-export const App: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleAddTodo = (text: string) => {
-    const newTodo: Todo = {
-      id: Date.now(),
-      text,
-      isDone: false,
-    };
-    setTodos((prev) => [...prev, newTodo]);
-  };
-  const handleToggle = (id: number) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo,
-      ),
-    );
-  };
-  const handleDelete = (id: number) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
-  };
+const BASE_URL = "https://jsonplaceholder.typicode.com/todos";
+
+const fetchTodos = async (): Promise<Todo[]> => {
+  const res = await fetch(`${BASE_URL}?_limit=10`);
+  const data = await res.json();
+  return data.map((item: any) => ({
+    id: item.id,
+    text: item.title,
+    isDone: item.completed,
+  }));
+};
+
+export const App: React.FC = () => {
+  const { data: todos = [], isLoading } = useQuery({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+  });
+
+  if (isLoading) return <div style={{ padding: 20 }}>로딩 중입니다...</div>;
+
+  // useMutation 연결하기...
+  const handleAddTodo = (_text: string) => {};
+  const handleToggle = (_id: number) => {};
+  const handleDelete = (_id: number) => {};
+
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
+
   return (
     <div className="todo-container">
       <h1 className="todo-container__header">🦁LIKELION TO-DO</h1>
