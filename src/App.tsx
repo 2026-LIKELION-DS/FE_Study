@@ -1,18 +1,9 @@
-import {
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient, } from "@tanstack/react-query";
 
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
-import {
-  addTodo,
-  completeTodo,
-  deleteTodo,
-  getTodos,
-} from "./api/todos";
+import { addTodo, completeTodo, deleteTodo, getTodos, } from "./api/todos";
 
 import type { Todo } from "./types/Todo";
 
