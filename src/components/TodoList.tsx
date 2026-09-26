@@ -22,7 +22,7 @@ function TodoList({
 
             <ul className="render-container__list">
             {activeTodos.map((todo) => (
-                <TodoItem key={todo.id} id={todo.id} text={todo.text}
+                <TodoItem key={todo.id} id={todo.id} text={todo.title}
                     completed={todo.completed} onComplete={onComplete} onDelete={onDelete}
                 />
             ))}
@@ -34,7 +34,7 @@ function TodoList({
 
             <ul className="render-container__list">
             {completedTodos.map((todo) => (
-                <TodoItem key={todo.id} id={todo.id} text={todo.text}
+                <TodoItem key={todo.id} id={todo.id} text={todo.title}
                     completed={todo.completed} onComplete={onComplete} onDelete={onDelete}
                 />
             ))}

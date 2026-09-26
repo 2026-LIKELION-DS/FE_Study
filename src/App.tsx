@@ -1,43 +1,35 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import type { Todo } from "./types/Todo";
+import { getTodos } from "./api/todos";
 import "./style.css";
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  const handleAddTodo = (text: string) => {
-    const newTodo: Todo = {
-      id: Date.now(),
-      text,
-      completed: false,
-    };
-
-    setTodos([...todos, newTodo]);
-  };
-
-  const handleCompleteTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: true }
-          : todo
-      )
-    );
-  };
-
-  const handleDeleteTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const {
+    data: todos,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["todos"],
+    queryFn: getTodos,
+  });
 
   return (
     <main className="todo-container">
-      <h1 className="todo-container__header">⛄︎ YEBIN'S TODO ⛄︎</h1>
+      <h1 className="todo-container__header">🌷 MY TO-DO</h1>
 
-      <TodoInput onAdd={handleAddTodo} />
+      <TodoInput onAdd={() => {}} />
 
-      <TodoList todos={todos} onComplete={handleCompleteTodo} onDelete={handleDeleteTodo}/>
+      {isLoading && <p>로딩 중...</p>}
+      {isError && <p>할 일 목록을 불러오지 못했습니다.</p>}
+
+      {todos && (
+        <TodoList
+          todos={todos}
+          onComplete={() => {}}
+          onDelete={() => {}}
+        />
+      )}
     </main>
   );
 }
