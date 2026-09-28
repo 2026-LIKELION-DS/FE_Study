@@ -4,7 +4,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 40px 16px;
+  box-sizing: border-box;
   background: linear-gradient(135deg, #fff2e6, #ffe0cc);
   margin: 0;
 }
@@ -15,7 +17,9 @@ body {
   padding: 20px 24px;
   border-radius: 16px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-  width: 20rem;
+  width: 40rem;
+  max-width: 100%;
+  box-sizing: border-box;
   text-align: center;
   border: 3px solid #ff6b00;
 }
@@ -64,11 +68,13 @@ body {
 .render-container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 20px;
 }
 
 .render-container__section {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   text-align: center;
 }
 
@@ -91,6 +97,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
 
   padding: 10px;
   border-bottom: 1px solid #eee;
@@ -101,9 +108,10 @@ body {
 
 .render-container__item-text {
   flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
   font-size: 14px;
 }
 
@@ -115,6 +123,8 @@ body {
   cursor: pointer;
   border-radius: 6px;
   font-size: 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
   transition:
     transform 0.2s ease,
     background-color 0.3s ease;
@@ -136,4 +146,20 @@ body {
 .render-container__item-button.delete:hover {
   background-color: #333;
   transform: scale(1.05);
+}
+
+.todo-container__status {
+  margin: 12px 0;
+  text-align: center;
+  color: #888;
+}
+
+@media (max-width: 560px) {
+  .render-container {
+    flex-direction: column;
+  }
+
+  .render-container__section {
+    width: 100%;
+  }
 }

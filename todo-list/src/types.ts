@@ -1,6 +1,17 @@
-// 할 일 하나를 나타내는 타입
 export interface Todo {
+  userId: number;
   id: number;
-  text: string;
-  isDone: boolean;
+  title: string;
+  completed: boolean;
+}
+
+export interface CreateTodoRequest {
+  userId: number;
+  title: string;
+  completed: boolean;
+}
+
+export interface UpdateTodoRequest {
+  id: number;
+  completed: boolean;
 }

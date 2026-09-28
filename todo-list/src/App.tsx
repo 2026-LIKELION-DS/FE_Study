@@ -1,45 +1,44 @@
-import { useState } from "react";
 import "./style.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import type { Todo } from "./types";
+import {
+  useCreateTodo,
+  useDeleteTodo,
+  useTodosQuery,
+  useUpdateTodo,
+} from "./hooks/useTodos";
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const { data: todos = [], isPending, isError, error } = useTodosQuery();
+  const createMutation = useCreateTodo();
+  const deleteMutation = useDeleteTodo();
+  const updateMutation = useUpdateTodo();
 
-  const activeTodos = todos.filter((todo) => !todo.isDone);
+  const activeTodos = todos.filter((todo) => !todo.completed);
+  const completedTodos = todos.filter((todo) => todo.completed);
 
-  const completedTodos = todos.filter((todo) => todo.isDone);
-
-  //할 일 추가
-  const handleAdd = (text: string) => {
-    const newTodo: Todo = {
-      id: Date.now(),
-      text,
-      isDone: false, // 새로 추가된 항목은 항상 할 일 상태로 표시되게
-    };
-
-    setTodos((prevTodos) => [...prevTodos, newTodo]);
+  const handleAdd = (title: string) => {
+    createMutation.mutate({ userId: 1, title, completed: false });
   };
 
   const handleComplete = (id: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: true } : todo,
-      ),
-    );
+    updateMutation.mutate({ id, completed: true });
   };
 
-  //할 일 삭제하기
   const handleDelete = (id: number) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    deleteMutation.mutate(id);
   };
 
   return (
     <div className="todo-container">
       <h1 className="todo-container__header">🦁 LIKELION TO-DO</h1>
 
-      <TodoInput onAdd={handleAdd} />
+      <TodoInput onAdd={handleAdd} isPending={createMutation.isPending} />
+
+      {isPending && <p className="todo-container__status">불러오는 중...</p>}
+      {isError && (
+        <p className="todo-container__status">에러: {error.message}</p>
+      )}
 
       <div className="render-container">
         <TodoList
