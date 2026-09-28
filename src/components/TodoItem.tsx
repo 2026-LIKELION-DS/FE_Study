@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Todo } from '../App';
+import type { Todo } from '../App.tsx';
 
 interface TodoItemProps {
     todo: Todo;
@@ -10,7 +10,7 @@ interface TodoItemProps {
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
     return(
         <li className="render-container__item">
-            <span className="render-container__text">{todo.text}</span>
+            <span className="render-container__item-text">{todo.text}</span>
             {todo.isDone ? (
                 <button className="render-container__item-button delete" onClick = {()=> onDelete(todo.id)}>
                     삭제
