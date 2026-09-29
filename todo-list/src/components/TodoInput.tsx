@@ -6,9 +6,10 @@ interface TodoInputProps {
   //새 할 일을 추가할 때 부모에게 알려준다
 
   onAdd: (text: string) => void;
+  isPending?: boolean;
 }
 
-function TodoInput({ onAdd }: TodoInputProps) {
+function TodoInput({ onAdd, isPending = false }: TodoInputProps) {
   const [text, setText] = useState("");
 
   // 입력창에 글자가 바뀔 때마다 state를 갱신
@@ -37,8 +38,12 @@ function TodoInput({ onAdd }: TodoInputProps) {
         onChange={handleChange}
       />
 
-      <button type="submit" className="todo-container__button">
-        추가
+      <button
+        type="submit"
+        className="todo-container__button"
+        disabled={isPending}
+      >
+        {isPending ? "추가 중" : "추가"}
       </button>
     </form>
   );

@@ -15,7 +15,7 @@ function TodoItem({
 }: TodoItemProps) {
   return (
     <li className="render-container__item">
-      <span className="render-container__item-text">{todo.text}</span>
+      <span className="render-container__item-text">{todo.title}</span>
 
       <button
         type="button"
