@@ -15,10 +15,9 @@ body {
     padding: 20px 24px;
     border-radius: 16px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-    width: fit-content;
+    width: 300px;
     text-align: center;
     border: 3px solid #ff6b00;
-    justify-content: center;
 }
 
 /* ===== 제목 ===== */
@@ -33,10 +32,6 @@ body {
 .todo-container__form {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 20px;
 }
 
