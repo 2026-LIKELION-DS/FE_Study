@@ -1,11 +1,11 @@
-import type { Todo } from "../../types/todo";
+import type { ApiTodo } from "../../types/todo";
 import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
 
 interface TodoListProps {
-  todos: Todo[];
-  onToggle: (id: string) => void;
-  onDelete: (id: string) => void;
+  todos: ApiTodo[];
+  onToggle: (id: number, completed: boolean) => void;
+  onDelete: (id: number) => void;
 }
 
 const TodoList = ({ todos, onToggle, onDelete }: TodoListProps) => {
